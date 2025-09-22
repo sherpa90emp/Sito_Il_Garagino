@@ -25,6 +25,7 @@ let nome = document.getElementById("nome");
 let email = document.getElementById("email");
 let oggetto_richiesta = document.getElementById("oggetto_richiesta");
 
+
 showSlides(slideIndex);
 
 frecciaDx.onclick = () => {
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   imgContatti();
 });
+
 
 function inputControllo(x) {
   let contenuto = x.value.trim();
