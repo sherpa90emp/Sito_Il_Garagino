@@ -25,7 +25,6 @@ let nome = document.getElementById("nome");
 let email = document.getElementById("email");
 let oggetto_richiesta = document.getElementById("oggetto_richiesta");
 
-
 showSlides(slideIndex);
 
 frecciaDx.onclick = () => {
@@ -54,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   vetrina();
 
   imgContatti();
-});
+});  
 
 
 function inputControllo(x) {
@@ -80,34 +79,34 @@ function cambioSlides(n) {
 }
 
 function imgContatti() {
-  let visibiliFix = Array.from(backgroundContattiFix).filter(
+  let visibilityFix = Array.from(backgroundContattiFix).filter(
     (el) => el.offsetParent !== null
   );
-  let visibiliSkew = Array.from(backgroundContattiSkew).filter(
+  let visibilitySkew = Array.from(backgroundContattiSkew).filter(
     (el) => el.offsetParent !== null
   );
-  let n = visibiliFix.length;
+  let n = visibilityFix.length;
 
   for (let i = 0; i < n; i++) {
     backgroundContattiFix[i].style.opacity = "0.2";
     if (n == 2) {
-      visibiliSkew[i].style.width = "40%";
+      visibilitySkew[i].style.width = "40%";
     } else {
-      visibiliSkew[i].style.width = `calc(60% / ${n - 1})`;
+      visibilitySkew[i].style.width = `calc(60% / ${n - 1})`;
     }
   }
   backgroundContattiIndex++;
   if (backgroundContattiIndex > n) {
     backgroundContattiIndex = 1;
   }
-  visibiliFix[backgroundContattiIndex - 1].style.opacity = "0.7";
-  visibiliFix[backgroundContattiIndex - 1].style.transition = "opacity 1s";
+  visibilityFix[backgroundContattiIndex - 1].style.opacity = "0.7";
+  visibilityFix[backgroundContattiIndex - 1].style.transition = "opacity 1s";
   if (n == 2) {
-    visibiliSkew[backgroundContattiIndex - 1].style.width = "60%";
-    visibiliSkew[backgroundContattiIndex - 1].style.transition = "width 1s";
+    visibilitySkew[backgroundContattiIndex - 1].style.width = "60%";
+    visibilitySkew[backgroundContattiIndex - 1].style.transition = "width 1s";
   } else {
-    visibiliSkew[backgroundContattiIndex - 1].style.width = "40%";
-    visibiliSkew[backgroundContattiIndex - 1].style.transition = "width 1s";
+    visibilitySkew[backgroundContattiIndex - 1].style.width = "40%";
+    visibilitySkew[backgroundContattiIndex - 1].style.transition = "width 1s";
   }
   setTimeout(imgContatti, 3500);
 }
@@ -121,11 +120,16 @@ function showSlides(n) {
     slideIndex = slides.length;
   }
   for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "";
-    slides[i].removeAttribute("id", "slide_carosello_active");
+    slides[i].removeAttribute("id");
+    let pSX = slides[slideIndex - 1].querySelector(".testo_slide_SX");
+    pSX.innerHTML = "";
   }
-  slides[slideIndex - 1].style.display = "grid";
   slides[slideIndex - 1].setAttribute("id", "slide_carosello_active");
+  setTimeout(function () {
+    let pSX = slides[slideIndex - 1].querySelector(".testo_slide_SX");
+    pSX.innerHTML = "";
+    macchinaDaScrivere(pSX.dataset.fulltext, pSX, 50);
+  }, 1000);
 }
 
 function vetrina() {
@@ -142,12 +146,15 @@ function vetrina() {
     if (firstRun) {
       testi.forEach((div) => (div.className = "testo_vetrina"));
       setTimeout(function () {
+        let p = testi[IndexVetrina].querySelector("p");
+        p.innerHTML = "";
         testi[IndexVetrina].className = "testo_vetrina_transition";
+        macchinaDaScrivere(p.dataset.fulltext, p, 40);
       }, 2000);
       firstRun = false;
       return;
     }
-    
+
     divVetrina.classList.add("fade-out");
 
     setTimeout(function () {
@@ -159,7 +166,10 @@ function vetrina() {
       testi.forEach((div) => (div.className = "testo_vetrina"));
 
       setTimeout(function () {
+        let p = testi[IndexVetrina].querySelector("p");
+        p.innerHTML = "";
         testi[IndexVetrina].className = "testo_vetrina_transition";
+        macchinaDaScrivere(p.dataset.fulltext, p, 40);
       }, 2000);
 
       IndexVetrina++;
@@ -167,5 +177,20 @@ function vetrina() {
         IndexVetrina = 0;
       }
     }, 1000);
-  }, 5000);
+  }, 10000);
+}
+
+function macchinaDaScrivere(stringaDaStampare, doveStampare, velocita) {
+  let index = 0;
+  if (doveStampare.typingTimeout) {
+    clearTimeout(doveStampare.typingTimeout);
+  }
+  function scrivi() {
+    if (index < stringaDaStampare.length) {
+      doveStampare.innerHTML += stringaDaStampare.charAt(index);
+      index++;
+      doveStampare.typingTimeout = setTimeout(scrivi, velocita);
+    }
+  }
+  scrivi();
 }
