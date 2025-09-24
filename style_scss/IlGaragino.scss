@@ -164,8 +164,7 @@ nav {
 
 #carosello {
   width: 100%;
-  height: 83.5vh;
-  scroll-margin-top: 210px;
+  height: 100vh;
   position: relative;
 }
 
@@ -269,13 +268,12 @@ nav {
 
 #contatti {
   width: 100%;
-  height: 83.5vh;
+  height: 100vh;
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
   background-color: rgb(44, 44, 44);
   position: relative;
-  scroll-margin-top: 210px;
 }
 
 .contatti_background_img_skew {
@@ -297,7 +295,7 @@ nav {
   position: absolute;
   background-color: transparent;
   width: 100%;
-  height: 83.5vh;
+  height: 100%;
   top: 0;
   z-index: 1;
   display: grid;
@@ -436,7 +434,7 @@ nav {
 
 #news {
   width: 100%;
-  height: 83.5vh;
+  height: 100vh;
   display: flex;
   flex-wrap: nowrap;
   position: relative;
@@ -470,7 +468,7 @@ nav {
 .card::before {
   content: '';
   position: absolute;
-  width: 1000px;
+  width: 1100px;
   background-image: linear-gradient(180deg, rgb(2, 161, 36), rgb(245, 7, 47));
   height: 130%;
   animation: rotBGimg 8s linear infinite;
