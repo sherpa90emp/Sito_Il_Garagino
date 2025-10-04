@@ -3,6 +3,7 @@ const backgroundVetrina = [
   'url("Img/ImgVetrina2.jpg")',
   'url("Img/ImgVetrina3.jpg")',
 ];
+//TODO modificare struttura vetrina, inserire un div per ogni immagine di vetrina
 
 let slideIndex = 1;
 let frecciaSx = document.getElementById("freccia_sx");
