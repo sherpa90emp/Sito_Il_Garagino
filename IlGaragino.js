@@ -17,15 +17,6 @@ let backgroundContattiSkew = document.getElementsByClassName(
   "contatti_background_img_skew"
 );
 
-let emailClick = document.getElementById("email_click");
-let richiestaEmail = document.getElementById("richiesta_email");
-let exit = document.getElementById("exit");
-
-let form = document.getElementById("form_invio_email");
-let nome = document.getElementById("nome");
-let email = document.getElementById("email");
-let oggetto_richiesta = document.getElementById("oggetto_richiesta");
-
 showSlides(slideIndex);
 
 frecciaDx.onclick = () => {
@@ -35,45 +26,11 @@ frecciaSx.onclick = () => {
   cambioSlides(-1);
 };
 
-emailClick.onclick = () => {
-  richiestaEmailActive();
-};
-
-exit.onclick = () => {
-  richiestaEmailDeactivate();
-};
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  inputControllo(nome);
-  inputControllo(email);
-  inputControllo(oggetto_richiesta);
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   vetrina();
 
   imgContatti();
-});  
-
-
-function inputControllo(x) {
-  let contenuto = x.value.trim();
-  if (contenuto.length == 0) {
-    x.querySelector(".error");
-    x.nextElementSibling.innerText = "Il campo è obbligatorio";
-  } else {
-    x.nextElementSibling.innerText = "";
-  }
-}
-
-function richiestaEmailActive() {
-  richiestaEmail.classList.add("richiesta_email_open");
-}
-
-function richiestaEmailDeactivate() {
-  richiestaEmail.classList.remove("richiesta_email_open");
-}
+});
 
 function cambioSlides(n) {
   showSlides((slideIndex += n));

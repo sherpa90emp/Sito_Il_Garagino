@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/email.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="email.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+        <div id="logo">
+          <h1>
+            <a href="#">
+              <figure>
+                <img
+                  src="Img/Il garagino@2x.webp"
+                  alt="Il Garagino - Restauro Vespe d’epoca"
+                />
+              </figure>
+            </a>
+          </h1>
+        </div>
+
+        <nav>
+          <div id="menu">
+            <ul id="menu-list">
+              <li><a href="#carosello">CHI SIAMO</a></li>
+              <li><a href="#contatti">DOVE TROVARCI</a></li>
+              <li><a href="#news">NEWS</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div class="richiesta_email" id="richiesta_email">
+          <div id="exit">X</div>
+          <form action="" id="form_invio_email" method="post">
+            <div class="div_campo" id="contenitore_nome">
+              <label class="label_richiesta_email" for="nome"
+                >Nome e Cognome</label
+              >
+              <input type="text" class="imput" id="nome" name="nome" />
+              <div class="error"></div>
+            </div>
+            <div class="div_campo" id="contenitore_email">
+              <label class="label_richiesta_email" for="email"
+                >La tua email</label
+              >
+              <input type="email" class="imput" id="email" name="email" />
+              <div class="error"></div>
+            </div>
+            <div class="div_campo" id="contenitore_richiesta">
+              <label class="label_richiesta_email" for="oggetto_richiesta"
+                >La tua richiesta</label
+              >
+              <textarea
+                type="textarea"
+                id="oggetto_richiesta"
+                name="oggetto_richiesta"
+              ></textarea>
+              <div class="error"></div>
+            </div>
+            <div class="div_campo" id="contenitore_checkbox">
+              <input type="checkbox" id="condizioni" name="condizioni" />
+              <label for="condizioni">Accetto le condizioni di utilizzo</label>
+            </div>
+            <div class="div_campo" id="contenitore_button">
+              <button id="prova">INVIA</button>
+            </div>
+          </form>
+        </div>
+    </main>    
+</body>
+</html>
