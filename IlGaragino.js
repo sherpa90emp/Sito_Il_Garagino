@@ -97,7 +97,7 @@ function vetrina() {
     divVetrina[IndexVetrina].classList.remove("active");
     testi[IndexVetrina].classList.remove("testo_vetrina_transition");
 
-    IndexVetrina++
+    IndexVetrina++;
     if (IndexVetrina >= divVetrina.length) {
       IndexVetrina = 0;
     }
@@ -110,7 +110,7 @@ function vetrina() {
     setTimeout(() => {
       macchinaDaScrivere(p.dataset.fulltext, p, 40);
     }, 1000);
-  }, 9000)
+  }, 9000);
 }
 
 function macchinaDaScrivere(stringaDaStampare, doveStampare, velocita) {
@@ -127,3 +127,14 @@ function macchinaDaScrivere(stringaDaStampare, doveStampare, velocita) {
   }
   scrivi();
 }
+
+(function (d, s, id) {
+  var js;
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://embedsocial.com/cdn/ht.js";
+  d.getElementsByTagName("head")[0].appendChild(js);
+})(document, "script", "EmbedSocialHashtagScript");
