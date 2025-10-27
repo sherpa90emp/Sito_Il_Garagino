@@ -1,10 +1,3 @@
-const backgroundVetrina = [
-  'url("Img/ImgVetrina1.jpg")',
-  'url("Img/ImgVetrina2.jpg")',
-  'url("Img/ImgVetrina3.jpg")',
-];
-//TODO modificare struttura vetrina, inserire un div per ogni immagine di vetrina
-
 let slideIndex = 1;
 let frecciaSx = document.getElementById("freccia_sx");
 let frecciaDx = document.getElementById("freccia_dx");
@@ -91,51 +84,33 @@ function showSlides(n) {
 }
 
 function vetrina() {
-  let IndexVetrina = 1;
-  let firstRun = true;
-  let divVetrina = document.getElementById("vetrina");
-  let testi = [
-    document.getElementById("divTestoFoto0Java"),
-    document.getElementById("divTestoFoto1Java"),
-    document.getElementById("divTestoFoto2Java"),
-  ];
+  let IndexVetrina = 0;
+  const divVetrina = document.querySelectorAll(".vetrina");
+  const testi = document.querySelectorAll(".testo_vetrina");
 
-  setInterval(function () {
-    if (firstRun) {
-      testi.forEach((div) => (div.className = "testo_vetrina"));
-      setTimeout(function () {
-        let p = testi[IndexVetrina].querySelector("p");
-        p.innerHTML = "";
-        testi[IndexVetrina].className = "testo_vetrina_transition";
-        macchinaDaScrivere(p.dataset.fulltext, p, 40);
-      }, 2000);
-      firstRun = false;
-      return;
+  divVetrina[IndexVetrina].classList.add("active");
+  testi[IndexVetrina].classList.add("testo_vetrina_transition");
+  let p = testi[IndexVetrina].querySelector("p");
+  macchinaDaScrivere(p.dataset.fulltext, p, 40);
+
+  setInterval(() => {
+    divVetrina[IndexVetrina].classList.remove("active");
+    testi[IndexVetrina].classList.remove("testo_vetrina_transition");
+
+    IndexVetrina++
+    if (IndexVetrina >= divVetrina.length) {
+      IndexVetrina = 0;
     }
 
-    divVetrina.classList.add("fade-out");
+    divVetrina[IndexVetrina].classList.add("active");
+    testi[IndexVetrina].classList.add("testo_vetrina_transition");
 
-    setTimeout(function () {
-      divVetrina.style.backgroundImage = backgroundVetrina[IndexVetrina];
-      setTimeout(function () {
-        divVetrina.classList.remove("fade-out");
-      }, 100);
-
-      testi.forEach((div) => (div.className = "testo_vetrina"));
-
-      setTimeout(function () {
-        let p = testi[IndexVetrina].querySelector("p");
-        p.innerHTML = "";
-        testi[IndexVetrina].className = "testo_vetrina_transition";
-        macchinaDaScrivere(p.dataset.fulltext, p, 40);
-      }, 2000);
-
-      IndexVetrina++;
-      if (IndexVetrina >= backgroundVetrina.length) {
-        IndexVetrina = 0;
-      }
+    let p = testi[IndexVetrina].querySelector("p");
+    p.innerHTML = "";
+    setTimeout(() => {
+      macchinaDaScrivere(p.dataset.fulltext, p, 40);
     }, 1000);
-  }, 10000);
+  }, 9000)
 }
 
 function macchinaDaScrivere(stringaDaStampare, doveStampare, velocita) {

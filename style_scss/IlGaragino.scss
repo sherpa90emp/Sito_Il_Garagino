@@ -101,21 +101,44 @@ nav {
   transition: transform 0.5s;
 }
 
-#vetrina {
+#contenitore_vetrina {
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url(../Img/ImgVetrina1.jpg);
+  background-color: black;
+}
+
+.vetrina {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   background-position: center;
   background-size: cover;
-  transition: opacity 5s;
-}
-
-.fade-out {
   opacity: 0;
+  transition: opacity 2s ease-in-out;
 }
 
-#contenitore_testi_vetrina {
+.active {
+  opacity: 1;
+}
+
+#vetrina0 {
+  background-image: url("../Img/ImgVetrina1.jpg");
+}
+
+#vetrina1 {
+  background-image: url("../Img/ImgVetrina2.jpg");
+}
+
+#vetrina2 {
+  background-image: url("../Img/ImgVetrina3.jpg");
+}
+
+.contenitore_testi_vetrina {
   position: relative;
   width: 40%;
   height: 35%;
@@ -139,10 +162,13 @@ nav {
   width: 60%;
   margin-right: auto;
   transform: translate(-63%);
-  transition: transform 1s, opacity 3s;
+  opacity: 1;
+  transition: transform 1s, opacity 3s ease;
 }
 
-#vetrina h2 {
+#divTestoFoto0,
+#divTestoFoto1,
+#divTestoFoto2, h2 {
   font-size: 4vw;
   margin: 0;
   padding: 0;
@@ -152,7 +178,9 @@ nav {
   letter-spacing: -0.3rem;
 }
 
-#vetrina p {
+#divTestoFoto0,
+#divTestoFoto1,
+#divTestoFoto2, p {
   font-size: 1.3vw;
   margin: 0;
   padding: 0;
@@ -325,11 +353,15 @@ nav {
 
 .contatti_background_img_fix {
   transform: skew(10deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contatti_background_img_fix img {
   display: block;
-  object-fit: none;
+  width: 180%;
+  object-fit: cover;
 }
 
 #contenitore_testo_contatti {
@@ -501,4 +533,6 @@ nav {
   font-family: testo2;
   color: white;
   font-size: 0.9rem;
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
 }
