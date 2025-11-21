@@ -58,22 +58,102 @@ h1 {
 }
 
 #logo {
-  margin: 0 auto;
   width: 29%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  margin-left: 2%;
 }
 
 figure {
   margin: 0 auto;
 }
 
-#logo figure img {
+#min_width_1300_logo {
   display: block;
-  margin: 10px auto;
+  margin: auto;
+}
+
+#max_width_1299_logo {
+  display: none;
+  margin: auto;
 }
 
 nav {
   width: 69%;
   margin: 0 auto;
+  position: relative;
+}
+
+#hamburger {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 38%;
+  left: 90%;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+
+.bar {
+  display: none;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+
+.bar span.top {
+  top: 0;
+}
+
+.bar span.middle {
+  top: 17px;
+}
+
+.bar span.bottom {
+  bottom: 0;
+}
+
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
 }
 
 #menu-list {
@@ -168,7 +248,8 @@ nav {
 
 #divTestoFoto0,
 #divTestoFoto1,
-#divTestoFoto2, h2 {
+#divTestoFoto2,
+h2 {
   font-size: 4vw;
   margin: 0;
   padding: 0;
@@ -180,7 +261,8 @@ nav {
 
 #divTestoFoto0,
 #divTestoFoto1,
-#divTestoFoto2, p {
+#divTestoFoto2,
+p {
   font-size: 1.3vw;
   margin: 0;
   padding: 0;
@@ -246,13 +328,13 @@ nav {
   height: 90%;
   width: 50%;
   background-color: transparent;
-}  
+}
 
 .foto_slide figure {
   position: relative;
   width: 100%;
   height: 100%;
-  display: flex;               
+  display: flex;
   justify-content: center;
   align-items: center;
   perspective: 1000px;
@@ -268,17 +350,16 @@ nav {
   top: 10%;
   right: 70%;
   transform-origin: center;
-  transition: transform .5s;
+  transition: transform 0.5s;
   transform: translatex(20px) rotateX(20deg) rotateY(20deg);
   box-shadow: -20px 20px 50px black;
 }
-  
+
 //TODO creare uno script per gestire l'effetto
 //.foto_slide figure > img:first-child:hover {
 //  will-change: transform;
 // transform: rotateX(0) rotateY(0);
 //}
-
 
 .foto_slide figure > img:last-child {
   display: block;
@@ -287,7 +368,7 @@ nav {
   max-width: 100%;
   z-index: 2;
   transform-origin: center;
-  transition: transform .5s;
+  transition: transform 0.5s;
   transform: translatex(20px) rotateX(-20deg) rotateY(-20deg);
   box-shadow: 20px 20px 50px black;
 }
@@ -297,7 +378,7 @@ nav {
   width: 50%;
   height: 100%;
   background-color: transparent;
-  display: flex;               
+  display: flex;
   justify-content: center;
   align-items: center;
   transform: skew(-20deg);
@@ -503,8 +584,22 @@ nav {
   line-height: 1.5;
 }
 
+@media only screen and (max-width: 1299px) {
+  #min_width_1300_logo {
+    display: none;
+  }
+
+  #max_width_1299_logo {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 1199px) {
   #menu-list {
     display: none;
+  }
+
+  .bar {
+    display: block;
   }
 }
