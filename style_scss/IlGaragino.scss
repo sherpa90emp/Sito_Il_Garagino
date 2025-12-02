@@ -101,7 +101,7 @@ nav {
 
 input[type="checkbox"] {
   -webkit-appearance: none;
-  display: none;
+  opacity: 0;
   visibility: hidden;
 }
 
@@ -598,6 +598,10 @@ p {
   #menu-list {
     display: none;
   }
+
+  //#check:checked ~ #menu #menu-list {
+  //  display: block;
+  //}
 
   .bar {
     display: block;
