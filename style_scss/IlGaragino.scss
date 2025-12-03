@@ -102,7 +102,6 @@ nav {
 input[type="checkbox"] {
   -webkit-appearance: none;
   opacity: 0;
-  visibility: hidden;
 }
 
 .bar {
@@ -596,12 +595,11 @@ p {
 
 @media only screen and (max-width: 1199px) {
   #menu-list {
-    display: none;
   }
 
-  //#check:checked ~ #menu #menu-list {
-  //  display: block;
-  //}
+  #hamburger:has(input:checked) + #menu #menu-list {
+    background-color: rosybrown;
+  }
 
   .bar {
     display: block;
