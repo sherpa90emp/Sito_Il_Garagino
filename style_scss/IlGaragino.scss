@@ -582,6 +582,7 @@ p {
   font-size: 0.9rem;
   letter-spacing: -0.02rem;
   line-height: 1.5;
+  text-shadow: rgb(44, 44, 44) 1.5px 1.5px 1.5px;
 }
 
 @media only screen and (max-width: 1299px) {
@@ -613,6 +614,7 @@ p {
     font-family: testo2;
     text-align: right;
     padding-right: 2%;
+    text-shadow: rgb(44, 44, 44) 1.5px 1.5px 1.5px;
   }
 
   #menu-list li:hover {

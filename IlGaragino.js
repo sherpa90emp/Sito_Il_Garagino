@@ -9,6 +9,10 @@ let backgroundContattiFix = document.getElementsByClassName(
 let backgroundContattiSkew = document.getElementsByClassName(
   "contatti_background_img_skew"
 );
+let checkbox = document.getElementById("check");
+let inputHamburgerLinks = document.querySelectorAll("#menu-list a");
+
+closeMenuHamburgerOnClickLinks();
 
 showSlides(slideIndex);
 
@@ -138,3 +142,13 @@ function macchinaDaScrivere(stringaDaStampare, doveStampare, velocita) {
   js.src = "https://embedsocial.com/cdn/ht.js";
   d.getElementsByTagName("head")[0].appendChild(js);
 })(document, "script", "EmbedSocialHashtagScript");
+
+function closeMenuHamburgerOnClickLinks() {
+    inputHamburgerLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 1199) {
+          checkbox.checked = false;
+        }
+      });
+    });
+}
