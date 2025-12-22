@@ -144,11 +144,11 @@ function macchinaDaScrivere(stringaDaStampare, doveStampare, velocita) {
 })(document, "script", "EmbedSocialHashtagScript");
 
 function closeMenuHamburgerOnClickLinks() {
-    inputHamburgerLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 1199) {
-          checkbox.checked = false;
-        }
-      });
+  inputHamburgerLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 1199) {
+        checkbox.checked = false;
+      }
     });
+  });
 }
