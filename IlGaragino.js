@@ -91,11 +91,12 @@ function vetrina() {
   let IndexVetrina = 0;
   const divVetrina = document.querySelectorAll(".vetrina");
   const testi = document.querySelectorAll(".testo_vetrina");
+  const spanTesti = document.querySelectorAll(".testo_vetrina span");
 
   divVetrina[IndexVetrina].classList.add("active");
   testi[IndexVetrina].classList.add("testo_vetrina_transition");
-  let p = testi[IndexVetrina].querySelector("p");
-  macchinaDaScrivere(p.dataset.fulltext, p, 40);
+  //let p = testi[IndexVetrina].querySelector("p");
+  //macchinaDaScrivere(p.dataset.fulltext, p, 40);
 
   setInterval(() => {
     divVetrina[IndexVetrina].classList.remove("active");
@@ -109,11 +110,11 @@ function vetrina() {
     divVetrina[IndexVetrina].classList.add("active");
     testi[IndexVetrina].classList.add("testo_vetrina_transition");
 
-    let p = testi[IndexVetrina].querySelector("p");
-    p.innerHTML = "";
-    setTimeout(() => {
-      macchinaDaScrivere(p.dataset.fulltext, p, 40);
-    }, 1000);
+    //let p = testi[IndexVetrina].querySelector("p");
+    //p.innerHTML = "";
+    //setTimeout(() => {
+    //  macchinaDaScrivere(p.dataset.fulltext, p, 40);
+    //}, 1000);
   }, 9000);
 }
 
