@@ -246,6 +246,10 @@ input[type]:checked ~ span.middle {
   transition: transform 1s, opacity 3s ease;
 }
 
+.span_transition {
+  transition: transform 2s, opacity 3s ease;
+}
+
 #divTestoFoto0 h2,
 #divTestoFoto1 h2,
 #divTestoFoto2 h2 {

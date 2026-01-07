@@ -91,30 +91,37 @@ function vetrina() {
   let IndexVetrina = 0;
   const divVetrina = document.querySelectorAll(".vetrina");
   const testi = document.querySelectorAll(".testo_vetrina");
-  const spanTesti = document.querySelectorAll(".testo_vetrina span");
+  
+  function attivaSpan(indexVetrina) {
+    divVetrina[indexVetrina].classList.add("active");
+    testi[indexVetrina].classList.add("testo_vetrina_transition");
+    const spanTestiAttivi = testi[IndexVetrina].querySelectorAll("span");
+    spanTestiAttivi.forEach(span => {
+    span.classList.add("span_transition");
+  });
+  }
 
-  divVetrina[IndexVetrina].classList.add("active");
-  testi[IndexVetrina].classList.add("testo_vetrina_transition");
-  //let p = testi[IndexVetrina].querySelector("p");
-  //macchinaDaScrivere(p.dataset.fulltext, p, 40);
+  function disattivaSpan(indexVetrina) {
+    divVetrina[indexVetrina].classList.remove("active");
+    testi[indexVetrina].classList.remove("testo_vetrina_transition");
+    const spanTestiAttivi = testi[IndexVetrina].querySelectorAll("span");
+    spanTestiAttivi.forEach(span => {
+    span.classList.remove("span_transition");
+  });
+  }
+
+  attivaSpan(IndexVetrina);  
 
   setInterval(() => {
-    divVetrina[IndexVetrina].classList.remove("active");
-    testi[IndexVetrina].classList.remove("testo_vetrina_transition");
+    disattivaSpan(IndexVetrina);
 
     IndexVetrina++;
     if (IndexVetrina >= divVetrina.length) {
       IndexVetrina = 0;
     }
 
-    divVetrina[IndexVetrina].classList.add("active");
-    testi[IndexVetrina].classList.add("testo_vetrina_transition");
+    attivaSpan(IndexVetrina);
 
-    //let p = testi[IndexVetrina].querySelector("p");
-    //p.innerHTML = "";
-    //setTimeout(() => {
-    //  macchinaDaScrivere(p.dataset.fulltext, p, 40);
-    //}, 1000);
   }, 9000);
 }
 
