@@ -91,37 +91,36 @@ function vetrina() {
   let IndexVetrina = 0;
   const divVetrina = document.querySelectorAll(".vetrina");
   const testi = document.querySelectorAll(".testo_vetrina");
-  
-  function attivaSpan(indexVetrina) {
+
+  function attiva(indexVetrina) {
     divVetrina[indexVetrina].classList.add("active");
     testi[indexVetrina].classList.add("testo_vetrina_transition");
-    const spanTestiAttivi = testi[IndexVetrina].querySelectorAll("span");
-    spanTestiAttivi.forEach(span => {
-    span.classList.add("span_transition");
-  });
+    const spanTestiAttivi = testi[indexVetrina].querySelectorAll("span");
+    spanTestiAttivi.forEach((span, i) => {
+      span.style.transitionDelay = `${i * 0.8}s`;
+    });
   }
 
-  function disattivaSpan(indexVetrina) {
+  function disattiva(indexVetrina) {
     divVetrina[indexVetrina].classList.remove("active");
     testi[indexVetrina].classList.remove("testo_vetrina_transition");
-    const spanTestiAttivi = testi[IndexVetrina].querySelectorAll("span");
-    spanTestiAttivi.forEach(span => {
-    span.classList.remove("span_transition");
-  });
+    const spanTestiAttivi = testi[indexVetrina].querySelectorAll("span");
+    spanTestiAttivi.forEach((span, i) => {
+      span.style.transitionDelay = "0s";
+    });
   }
 
-  attivaSpan(IndexVetrina);  
+  attiva(IndexVetrina);
 
   setInterval(() => {
-    disattivaSpan(IndexVetrina);
+    disattiva(IndexVetrina);
 
     IndexVetrina++;
     if (IndexVetrina >= divVetrina.length) {
       IndexVetrina = 0;
     }
 
-    attivaSpan(IndexVetrina);
-
+    attiva(IndexVetrina);
   }, 9000);
 }
 
