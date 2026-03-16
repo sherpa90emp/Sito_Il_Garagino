@@ -97,7 +97,7 @@ function vetrina() {
     testi[indexVetrina].classList.add("testo_vetrina_transition");
     const spanTestiAttivi = testi[indexVetrina].querySelectorAll("span");
     spanTestiAttivi.forEach((span, i) => {
-      span.style.transitionDelay = `${i * 0.8}s`;
+      span.style.transitionDelay = `${(i+1) * 0.8}s`;
     });
   }
 
