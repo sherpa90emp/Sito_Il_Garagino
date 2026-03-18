@@ -381,7 +381,7 @@ input[type]:checked ~ span.middle {
 .foto_slide figure > img:last-child {
   display: block;
   object-fit: contain;
-  height: 50%;
+  height: 35vw;
   max-width: 100%;
   z-index: 2;
   transform-origin: center;
@@ -617,8 +617,8 @@ input[type]:checked ~ span.middle {
     display: block;
     position: absolute;
     top: 125px;
-    left: 50%;
-    width: 50%;
+    left: 40%;
+    width: 60%;
     opacity: 0;
     transform: translateY(-30px);
     transition: opacity 0.5s ease, transform 0.5s ease;
