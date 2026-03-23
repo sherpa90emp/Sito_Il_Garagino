@@ -187,6 +187,7 @@ input[type]:checked ~ span.middle {
   height: 100vh;
   overflow: hidden;
   background-color: black;
+  container-type: inline-size;
 }
 
 .vetrina {
@@ -220,10 +221,10 @@ input[type]:checked ~ span.middle {
 
 .contenitore_testi_vetrina {
   position: relative;
-  width: 40%;
+  width: auto;
   height: 35%;
   top: 65%;
-  right: -90%;
+  right: -70%;
 }
 
 .testo_vetrina {
@@ -231,7 +232,7 @@ input[type]:checked ~ span.middle {
   position: absolute;
   text-align: right;
   width: 60%;
-  margin-right: auto;
+  height: 50%;
 }
 
 .testo_vetrina_transition {
@@ -240,14 +241,12 @@ input[type]:checked ~ span.middle {
   text-align: right;
   width: 60%;
   margin-right: auto;
-  //transform: translate(-63%);
-  //transition: transform 1s;
 }
 
 #divTestoFoto0 h2,
 #divTestoFoto1 h2,
 #divTestoFoto2 h2 {
-  font-size: 4vw;
+  font-size: 4cqw;
   margin: 0;
   padding: 0;
   font-family: testo;
@@ -260,7 +259,7 @@ input[type]:checked ~ span.middle {
 #divTestoFoto1 span,
 #divTestoFoto2 span {
   display: block;
-  font-size: 1.3vw;
+  font-size: 1.3cqw;
   margin: 0;
   padding: 0;
   font-family: testo;
@@ -280,14 +279,6 @@ input[type]:checked ~ span.middle {
   transform: translate(-63%);
   transition: transform 1s, opacity 1s ease;
 }
-
-//.h2_transition {
-// opacity: 1;
-//}
-
-//.span_transition {
-//  opacity: 1;
-//}
 
 #carosello {
   width: 100%;
@@ -667,5 +658,19 @@ input[type]:checked ~ span.middle {
 
   .bar {
     display: block;
+  }
+
+  @media only screen and (max-width: 430px) {
+    #divTestoFoto0 h2,
+    #divTestoFoto1 h2,
+    #divTestoFoto2 h2 {
+      font-size: 11cqw;
+    }
+    
+    #divTestoFoto0 span,
+    #divTestoFoto1 span,
+    #divTestoFoto2 span {
+      font-size: 3.5cqw;
+    }
   }
 }
