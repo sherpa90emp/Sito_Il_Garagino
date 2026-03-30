@@ -55,6 +55,7 @@ header {
 
 h1 {
   margin: 0 auto;
+  height: 100%;
 }
 
 #logo {
@@ -62,26 +63,20 @@ h1 {
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: violet;
+  justify-content: center;
 }
 
 #logo img {
   height: 100%;
   width: 100%;
   object-fit: contain;
-  margin-left: 2%;
-  background-color: turquoise;
-}
-
-figure {
-  margin: 0 auto;
+  margin: auto;
 }
 
 nav {
   width: 69%;
   margin: 0 auto;
   position: relative;
-  background-color: white;
 }
 
 #hamburger {
@@ -595,7 +590,7 @@ input[type]:checked ~ span.middle {
 @media only screen and (max-width: 1199px) {
   #menu-list {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 125px;
     left: 40%;
     width: 60%;
@@ -648,24 +643,34 @@ input[type]:checked ~ span.middle {
   .bar {
     display: block;
   }
+}
 
-  @media only screen and (max-width: 430px) {
-    #logo h1 {
-      height: 100px;
-    }
+@media only screen and (max-width: 430px) {
+  #logo {
+    width: 80%;
+    height: 100%;
+  }
 
-    #divTestoFoto0 h2,
-    #divTestoFoto1 h2,
-    #divTestoFoto2 h2 {
-      font-size: 11cqw;
-      letter-spacing: -0.1rem;
-    }
-    
-    #divTestoFoto0 span,
-    #divTestoFoto1 span,
-    #divTestoFoto2 span {
-      font-size: 3.5cqw;
-      letter-spacing: -0.05rem;
-    }
+  nav {
+    width: 19%;
+  }
+
+  #menu-list {
+  left: 0;
+  width: 100vw;
+  }
+
+  #divTestoFoto0 h2,
+  #divTestoFoto1 h2,
+  #divTestoFoto2 h2 {
+    font-size: 11cqw;
+    letter-spacing: -0.1rem;
+  }
+  
+  #divTestoFoto0 span,
+  #divTestoFoto1 span,
+  #divTestoFoto2 span {
+    font-size: 3.5cqw;
+    letter-spacing: -0.05rem;
   }
 }
