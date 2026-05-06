@@ -53,11 +53,6 @@ header {
   z-index: 5;
 }
 
-h1 {
-  margin: 0 auto;
-  height: 100%;
-}
-
 #logo {
   width: 29%;
   height: 100%;
@@ -560,10 +555,11 @@ input[type]:checked ~ span.middle {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rosybrown;
 }
 
 #foto_logo img {
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 
