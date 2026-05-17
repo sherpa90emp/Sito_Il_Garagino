@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  il-garagino:
+    image: nginx:alpine
+    container_name: il_garagino_web
+    ports:
+      - "8084:80"
+    volumes:
+      - .:/usr/share/nginx/html
