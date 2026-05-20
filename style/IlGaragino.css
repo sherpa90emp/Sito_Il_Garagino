@@ -337,7 +337,7 @@ input[type]:checked ~ span.middle {
   top: var(--randomTop, 10%);
   right: 270%;
   transform-origin: center;
-  transition: right 1.5s ease-out, top 1.5s ease-out, transform 1.5s ease-out;
+  transition: right 1.5s ease-out, top 1.5s ease-out, transform 1.7s ease-out;
   transform: translatex(0) rotateX(0) rotateY(0);
   box-shadow: -20px 20px 50px black;
 }
