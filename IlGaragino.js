@@ -178,7 +178,9 @@ function moveFotoCarosello() {
   
   fotoSlide.forEach(img => {
     img.classList.remove("active_carosello_0");
-    let randomTop = Math.floor(Math.random() * 40) - 30 + "%";
+    img.style.setProperty("--randomTop", "0%");
+
+    let randomTop = Math.floor(Math.random() * 100 - 50) + "%";
     img.style.setProperty("--randomTop", randomTop);
   })
   fotoSlide[0].classList.add("active_carosello_0");
