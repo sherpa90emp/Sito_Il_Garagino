@@ -68,23 +68,36 @@ function imgContatti() {
 
 function showSlides(n) {
   let slides = document.getElementsByClassName("slide_carosello");
+  
   if (n > slides.length) {
     slideIndex = 1;
   }
+
   if (n < 1) {
     slideIndex = slides.length;
   }
+
   for (let i = 0; i < slides.length; i++) {
     slides[i].removeAttribute("id");
+    let img = slides[i].querySelector("img");
+    if (img) {
+      img.classList.remove("active_carosello_0");
+    }
     let pSX = slides[slideIndex - 1].querySelector(".testo_slide_SX");
     pSX.innerHTML = "";
   }
   slides[slideIndex - 1].setAttribute("id", "slide_carosello_active");
+
   setTimeout(function () {
     let pSX = slides[slideIndex - 1].querySelector(".testo_slide_SX");
     pSX.innerHTML = "";
     macchinaDaScrivere(pSX.dataset.fulltext, pSX, 50);
   }, 1000);
+
+  setTimeout(function () {
+    moveFotoCarosello();
+  }, 100)
+  
 }
 
 function vetrina() {
@@ -158,4 +171,15 @@ function closeMenuHamburgerOnClickLinks() {
       }
     });
   });
+}
+
+function moveFotoCarosello() {
+  let fotoSlide = document.querySelectorAll("#slide_carosello_active img")
+  
+  fotoSlide.forEach(img => {
+    img.classList.remove("active_carosello_0");
+    let randomTop = Math.floor(Math.random() * 40) - 30 + "%";
+    img.style.setProperty("--randomTop", randomTop);
+  })
+  fotoSlide[0].classList.add("active_carosello_0");
 }
