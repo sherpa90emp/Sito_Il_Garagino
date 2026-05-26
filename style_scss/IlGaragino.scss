@@ -351,13 +351,16 @@ input[type]:checked ~ span.middle {
 
 .foto_slide figure > img:last-child {
   display: block;
+  position: relative;
   object-fit: contain;
   height: 35vw;
   max-width: 100%;
+  top: var(--randomTop, 10%);
+  left: 200%; 
   z-index: 2;
   transform-origin: center;
-  transition: transform 0.5s;
-  transform: translatex(20px) rotateX(-20deg) rotateY(-20deg);
+  transition: right 1.5s ease-out, top 1.5s ease-out, transform 1.7s ease-out;
+  transform: translatex(0) rotateX(0) rotateY(0);
   box-shadow: 20px 20px 50px black;
 }
 
@@ -365,6 +368,12 @@ input[type]:checked ~ span.middle {
   top: 10%;
   right: 75%;
   transform: translateX(20px) rotateX(20deg) rotateY(20deg);
+}
+
+.foto_slide figure > img:last-child.active_carosello_1 {
+  top: auto;
+  left: 0%;
+  transform: translatex(20px) rotateX(-20deg) rotateY(-20deg);
 }
 
 .contenitore_testo_slide {
@@ -555,7 +564,7 @@ input[type]:checked ~ span.middle {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rosybrown;
+  //background-color: rosybrown;
 }
 
 #foto_logo img {
@@ -642,6 +651,7 @@ input[type]:checked ~ span.middle {
   }
 
   .foto_slide figure > img:first-child.active_carosello {
+    top: 10%;
     right: 70%;
     transform: translateX(20px) rotateX(20deg) rotateY(20deg);
   }
