@@ -81,7 +81,7 @@ function showSlides(n) {
     slides[i].removeAttribute("id");
     let img = slides[i].querySelector("img");
     if (img) {
-      img.classList.remove("active_carosello_0");
+      img.classList.remove("active_carosello_0", "active_carosello_1");
     }
     let pSX = slides[slideIndex - 1].querySelector(".testo_slide_SX");
     pSX.innerHTML = "";
@@ -177,11 +177,12 @@ function moveFotoCarosello() {
   let fotoSlide = document.querySelectorAll("#slide_carosello_active img")
   
   fotoSlide.forEach(img => {
-    img.classList.remove("active_carosello_0");
+    img.classList.remove("active_carosello_0", "active_carosello_1");
     img.style.setProperty("--randomTop", "0%");
 
     let randomTop = Math.floor(Math.random() * 100 - 50) + "%";
     img.style.setProperty("--randomTop", randomTop);
   })
   fotoSlide[0].classList.add("active_carosello_0");
+  fotoSlide[1].classList.add("active_carosello_1");
 }
