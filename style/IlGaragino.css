@@ -353,7 +353,7 @@ input[type]:checked ~ span.middle {
   left: 200%;
   z-index: 2;
   transform-origin: center;
-  transition: right 1.5s ease-out, top 1.5s ease-out, transform 1.7s ease-out;
+  transition: left 1.5s ease-out, top 1.5s ease-out, transform 1.7s ease-out;
   transform: translatex(0) rotateX(0) rotateY(0);
   box-shadow: 20px 20px 50px black;
 }
